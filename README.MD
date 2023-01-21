@@ -35,7 +35,7 @@ for (qq in array) {
 
 - 开奖代码
 ````kotlin
-while (i < 19) {
+while (i < 20) {
     //开奖延迟
     if (i != 18) Thread.sleep(3000)
     val name = list.get(radom(list.size))
@@ -64,7 +64,10 @@ private fun winning(qq: Long, rank: Int) {
         9,10,11,12,13,14,15,16,17,18 -> runOnUiThread { textView.text = "${textView.text}\n参与奖：$qq" }
 
         else -> {
-            runOnUiThread { textView.text = "${textView.text}\n\n开奖完成" }
+            runOnUiThread {
+                textView.text = "${textView.text}\n\n开奖完成"
+                Toast.makeText(applicationContext,"开奖完成",Toast.LENGTH_LONG).show()
+            }
             copyText(textView.text)
         }
     }
